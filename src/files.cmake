@@ -16,22 +16,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-include(CheckTypeSize)
-
-macro(CHECK_TYPE_EXISTS TYPE)
-  string(REPLACE " " "_" _VAR_NAME ${TYPE})
-  string(TOUPPER ${_VAR_NAME} _VAR_NAME)
-  check_type_size(${TYPE} SIZEOF_${_VAR_NAME})
-  if(SIZEOF_${_VAR_NAME})
-    set(MUSIC_HAVE_${_VAR_NAME} 1)
-  else()
-    set(MUSIC_HAVE_${_VAR_NAME} 0)
-  endif()
-endmacro()
-
-check_type_exists("size_t")
-check_type_exists("long long")
-
 configure_file(music/music-config.hh.in
                ${PROJECT_BINARY_DIR}/music/music-config.hh
                @ONLY)

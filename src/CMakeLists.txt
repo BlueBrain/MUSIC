@@ -34,5 +34,4 @@ set_target_properties(music_c PROPERTIES OUTPUT_NAME "music-c")
 # The original autoconf scripts install also predict-rank-c.h. It has been
 # excluded because it's C++ countepart is not exported, which makes it look
 # like a private header.
-install(FILES music-c.h music.hh
-        DESTINATION include)
+install(FILES music-c.h music.hh DESTINATION include)
