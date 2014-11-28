@@ -16,6 +16,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+include(CheckTypeSize)
+
+macro(CHECK_TYPE_EXISTS TYPE)
+  string(REPLACE " " "_" _VAR_NAME ${TYPE})
+  string(TOUPPER ${_VAR_NAME} _VAR_NAME)
+  check_type_size(${TYPE} ${_VAR_NAME})
+  if(${HAVE_${_VAR_NAME}})
+    set(MUSIC_HAVE_${_VAR_NAME} 1)
+  else()
+    set(MUSIC_HAVE_${_VAR_NAME})
+  endif()
+endmacro()
+
+check_type_exists("size_t")
+check_type_exists("long long")
+
 if(NOT MPI_FOUND)
   message(FATAL_ERROR "MPI is required to compile music")
 endif()
@@ -55,4 +71,3 @@ configure_file(CMake/config/config.h.in ${PROJECT_BINARY_DIR}/config.h)
 
 include_directories(${MPI_C_INCLUDE_PATH}
                     ${PROJECT_BINARY_DIR})
-
