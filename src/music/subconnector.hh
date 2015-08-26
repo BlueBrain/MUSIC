@@ -34,7 +34,7 @@ namespace MUSIC {
   // maps passed to cont ports
   const int SPIKE_BUFFER_MAX = 10000 * sizeof (Event);
   const int CONT_BUFFER_MAX = SPIKE_BUFFER_MAX;
-  const int MESSAGE_BUFFER_MAX = 10000;
+  const int MESSAGE_BUFFER_MAX = 1000000;
 
   // The subconnector is responsible for the local side of the
   // communication between two MPI processes, one for each port of a
