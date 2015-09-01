@@ -27,27 +27,33 @@ include(GitExternal)
 set(VERSION_MAJOR "1")
 set(VERSION_MINOR "0")
 set(VERSION_PATCH "7")
-
-macro(remove_flag _FLAG_LIST _FLAG)
-  string(REPLACE " " ";" _LIST ${${_FLAG_LIST}})
-  list(REMOVE_ITEM _LIST ${_FLAG})
-  string(REPLACE ";" " " ${_FLAG_LIST} "${_LIST}")
-endmacro()
+set(VERSION_ABI "100")
 
 set(PROJECT_INCLUDE_NAME music)
-
 include(Common)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_CLANG)
-  remove_flag(CMAKE_C_FLAGS -Wshadow)
-  remove_flag(CMAKE_CXX_FLAGS -Wshadow)
-elseif(CMAKE_COMPILER_IS_INTEL)
-  remove_flag(CMAKE_CXX_FLAGS -Wshadow)
-endif()
+macro(remove_flag _FLAG_LIST _FLAG)
+  if(${_FLAG_LIST})
+    string(REPLACE " " ";" _LIST "${${_FLAG_LIST}}")
+    list(REMOVE_ITEM _LIST ${_FLAG})
+    string(REPLACE ";" " " ${_FLAG_LIST} "${_LIST}")
+  endif()
+endmacro()
 
-include(FindPackages)
+common_package(MPI REQUIRED)
+common_package(OpenGL)
+common_package(PythonInterp)
+common_package(PythonLibs)
+common_package(Threads)
+common_package_post()
 
 include(Configure)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_CLANG OR
+   CMAKE_COMPILER_IS_INTEL)
+  set(COMMON_C_FLAGS "${COMMON_C_FLAGS} -Wno-shadow")
+  set(COMMON_CXX_FLAGS "${COMMON_CXX_FLAGS} -Wno-shadow")
+endif()
 
 add_subdirectory(mpidep)
 add_subdirectory(src)

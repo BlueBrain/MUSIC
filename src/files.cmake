@@ -21,7 +21,6 @@ configure_file(music/music-config.hh.in
                @ONLY)
 
 set(MUSIC_SOURCES
-  ${COMMON_SOURCES}
   BIFO.cc
   FIBO.cc
   application_map.cc
@@ -101,42 +100,41 @@ set(MUSIC_C_HEADERS
   music-c.h)
 
 set(MUSIC_PUBLIC_HEADERS
-  ${COMMON_INDLUDES}
-  ${CMAKE_SOURCE_DIR}/src/music/BIFO.hh
-  ${CMAKE_SOURCE_DIR}/src/music/FIBO.hh
-  ${CMAKE_SOURCE_DIR}/src/music/application_map.hh
-  ${CMAKE_SOURCE_DIR}/src/music/array_data.hh
-  ${CMAKE_SOURCE_DIR}/src/music/clock.hh
-  ${CMAKE_SOURCE_DIR}/src/music/collector.hh
-  ${CMAKE_SOURCE_DIR}/src/music/communication.hh
-  ${CMAKE_SOURCE_DIR}/src/music/configuration.hh
-  ${CMAKE_SOURCE_DIR}/src/music/connectivity.hh
-  ${CMAKE_SOURCE_DIR}/src/music/connector.hh
-  ${CMAKE_SOURCE_DIR}/src/music/connection.hh
-  ${CMAKE_SOURCE_DIR}/src/music/cont_data.hh
-  ${CMAKE_SOURCE_DIR}/src/music/distributor.hh
-  ${CMAKE_SOURCE_DIR}/src/music/event.hh
-  ${CMAKE_SOURCE_DIR}/src/music/event_router.hh
-  ${CMAKE_SOURCE_DIR}/src/music/data_map.hh
-  ${CMAKE_SOURCE_DIR}/src/music/debug.hh
-  ${CMAKE_SOURCE_DIR}/src/music/error.hh
-  ${CMAKE_SOURCE_DIR}/src/music/linear_index.hh
-  ${CMAKE_SOURCE_DIR}/src/music/index_map.hh
-  ${CMAKE_SOURCE_DIR}/src/music/index_map_factory.hh
-  ${CMAKE_SOURCE_DIR}/src/music/interval.hh
-  ${CMAKE_SOURCE_DIR}/src/music/interval_tree.hh
-  ${CMAKE_SOURCE_DIR}/src/music/ioutils.hh
-  ${CMAKE_SOURCE_DIR}/src/music/message.hh
   ${PROJECT_BINARY_DIR}/music/music-config.hh
-  ${CMAKE_SOURCE_DIR}/src/music/port.hh
-  ${CMAKE_SOURCE_DIR}/src/music/permutation_index.hh
-  ${CMAKE_SOURCE_DIR}/src/music/runtime.hh
-  ${CMAKE_SOURCE_DIR}/src/music/setup.hh
-  ${CMAKE_SOURCE_DIR}/src/music/sampler.hh
-  ${CMAKE_SOURCE_DIR}/src/music/spatial.hh
-  ${CMAKE_SOURCE_DIR}/src/music/subconnector.hh
-  ${CMAKE_SOURCE_DIR}/src/music/synchronizer.hh
-  ${CMAKE_SOURCE_DIR}/src/music/temporal.hh
-  ${CMAKE_SOURCE_DIR}/src/music/version.hh
+  music/BIFO.hh
+  music/FIBO.hh
+  music/application_map.hh
+  music/array_data.hh
+  music/clock.hh
+  music/collector.hh
+  music/communication.hh
+  music/configuration.hh
+  music/connectivity.hh
+  music/connector.hh
+  music/connection.hh
+  music/cont_data.hh
+  music/distributor.hh
+  music/event.hh
+  music/event_router.hh
+  music/data_map.hh
+  music/debug.hh
+  music/error.hh
+  music/linear_index.hh
+  music/index_map.hh
+  music/index_map_factory.hh
+  music/interval.hh
+  music/interval_tree.hh
+  music/ioutils.hh
+  music/message.hh
+  music/port.hh
+  music/permutation_index.hh
+  music/runtime.hh
+  music/setup.hh
+  music/sampler.hh
+  music/spatial.hh
+  music/subconnector.hh
+  music/synchronizer.hh
+  music/temporal.hh
+  music/version.hh
   )
 

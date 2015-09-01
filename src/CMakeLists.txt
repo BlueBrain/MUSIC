@@ -22,7 +22,7 @@ add_definitions(-DBUILDING_MUSIC_LIBRARY)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-set(MUSIC_LINK_LIBRARIES ${MPI_LIBRARIES} mpidep)
+set(MUSIC_LINK_LIBRARIES PUBLIC ${MPI_LIBRARIES} PRIVATE mpidep)
 common_library(music)
 
 set(MUSIC_C_LINK_LIBRARIES music)
