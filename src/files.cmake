@@ -96,11 +96,14 @@ set(MUSIC_HEADERS
   music/version.hh
   )
 
-set(MUSIC_C_HEADERS
+set(MUSIC_C_PUBLIC_HEADERS
   music-c.h)
 
+# The original autoconf scripts install also predict-rank-c.h. It has been
+# excluded because it's C++ countepart is not exported, which makes it look
+# like a private header.
 set(MUSIC_PUBLIC_HEADERS
-  ${PROJECT_BINARY_DIR}/music/music-config.hh
+  music.hh
   music/BIFO.hh
   music/FIBO.hh
   music/application_map.hh

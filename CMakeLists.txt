@@ -29,7 +29,6 @@ set(VERSION_MINOR "0")
 set(VERSION_PATCH "7")
 set(VERSION_ABI "100")
 
-set(PROJECT_INCLUDE_NAME music)
 include(Common)
 
 macro(remove_flag _FLAG_LIST _FLAG)
