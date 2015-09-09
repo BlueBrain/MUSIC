@@ -20,8 +20,6 @@ include(files.cmake)
 
 add_definitions(-DBUILDING_MUSIC_LIBRARY)
 
-include_directories(${PROJECT_SOURCE_DIR}/src)
-
 # We can't use CMake/common common_library because the project doesn't have
 # an suitable file layout for it. We will mimic the essential parts that make
 # target exports work
@@ -35,6 +33,10 @@ macro(library Name)
   set_target_properties(${Name} PROPERTIES
     VERSION ${VERSION} SOVERSION ${VERSION_ABI} FOLDER ${Name})
   target_link_libraries(${Name} ${${NAME}_LINK_LIBRARIES})
+  target_include_directories(${Name} PUBLIC
+        "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>"
+        "$<BUILD_INTERFACE:${OUTPUT_INCLUDE_DIR}>"
+        "$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>")
 
   # SubProject.cmake helpers
   set_property(GLOBAL APPEND PROPERTY music_ALL_DEP_TARGETS ${Name})

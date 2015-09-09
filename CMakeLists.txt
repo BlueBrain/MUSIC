@@ -20,7 +20,7 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 project(music)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake
-                              ${PROJECT_SOURCE_DIR}/CMake/common)
+                              ${CMAKE_SOURCE_DIR}/CMake/common)
 
 include(GitExternal)
 
@@ -29,6 +29,7 @@ set(VERSION_MINOR "0")
 set(VERSION_PATCH "7")
 set(VERSION_ABI "100")
 
+set(PROJECT_INCLUDE_NAME music)
 include(Common)
 
 macro(remove_flag _FLAG_LIST _FLAG)
@@ -62,4 +63,4 @@ add_subdirectory(test)
 add_subdirectory(doc)
 
 set(MUSIC_EXCLUDE_LIBRARIES rudeconfig mpidep)
-include(PackageConfig)
+include(CommonPackageConfig)
